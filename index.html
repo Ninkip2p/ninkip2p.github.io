@@ -154,6 +154,16 @@ Whenever Bob needs to generate an address for Alice, he retrieves the packet fro
 <h2>Multi Signature Architecture</h2>
 
 
+<p>Ninki Wallet is a 2 of 3 multi-signature wallet where 2 keys are controlled by the user and one key is controlled by Ninki. The user would typically store one key online using encryption on a usb drive or a cloud storage service. This is referred to as the Online key and should always be stored using encryption. The other user key would typically be stored offline, perhaps in paper format in a safe deposit box or safe. The Countersigning key is secured by Ninki on the server.</p>
+
+
+<p>This configuration allows Ninki to act as a counter-signing service, but without the ability to move the funds alone, and provides the user with the ability to recover their funds in any event.</p>
+
+<img src="multi-k.png" />
+
+
+<p>When the user initiates a transaction, it is built locally on the client, signed with their online key and then sent to the server for counter signing. The server validates the transaction and then countersigns and broadcasts it to the Bitcoin network.<p>
+
 
 <img src="multis.png" />
 
