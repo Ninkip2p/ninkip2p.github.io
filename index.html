@@ -102,15 +102,24 @@ The encrypted secret is stored on the server. When the user attempts to login to
 users who regularly transact with each other, to generate addresses on each other's behalf. So instead of you sending
 me an address, I simply derive one from the next node on the public key chain you assinged and sent to me.</p>
 
-<p>This presents a problem of a MIM attack when exchanging these parent nodes. How do we know the server which is
-facilitating the exchange is not compromised.</p>
+<p>This presents a problem of a MIM attack when exchanging nodes. How do we know the server which is
+facilitating the exchange is not compromised?</p>
 
 <p>To solve this we use PGP with the keys generated on the client at the time of account creation and stored in an
 encrypted packet, using the user's passphrase.</p>
 
-<p>An out of band fingerprint exchange must occur between the two users in order to validate that the service or another
+<p>An out-of-band fingerprint exchange must occur between the two users in order to validate that the service or another
 actor has not compromised the integrity of the key exchange. We present this fingerprint in the form of a BIP39 encoded
 mnemonic reffered to as a 'Ninki Phrase'.</p>
+
+<div class="bs-docs-example">
+  
+  <div class="code">
+    
+    water marsh free river
+  </div>
+  
+</div>
 
 
 <h3>Alice provides a node to Bob</h3>
@@ -128,11 +137,9 @@ mnemonic reffered to as a 'Ninki Phrase'.</p>
 
 <li>Alice encrypts her HD node with Bob's untrusted PGP public key and signs it with her PGP private key.</li>
 
-<li>Alice encrypts Bob's untrusted PGP public key with her PGP public key and stores on the server for future reference.</p>
-
 <li>Bob retrieves the packet encrypted by Alice from the server and decrypts using his PGP private key.</li>
 
-<li>Bob retrieves Alice's untrusted PGP public key from the server and validates the signature on the packet matches.</li>
+<li>Bob retrieves Alice's untrusted PGP public key from the server and validates the signature on the packet</li>
 
 <li>Bob encrypts the contents of the packet and Alice's untrusted PGP public key with his PGP public key and stores on the server for future reference.</li>
 
@@ -154,7 +161,7 @@ Whenever Bob needs to generate an address for Alice, he retrieves the packet fro
 <h2>Multi Signature Architecture</h2>
 
 
-<p>Ninki Wallet is a 2 of 3 multi-signature wallet where 2 keys are controlled by the user and one key is controlled by Ninki. The user would typically store one key online using encryption on a usb drive or a cloud storage service. This is referred to as the Online key and should always be stored using encryption. The other user key would typically be stored offline, perhaps in paper format in a safe deposit box or safe. The Countersigning key is secured by Ninki on the server.</p>
+<p>Ninki Wallet is a 2 of 3 multi-signature wallet where 2 keys are controlled by the user and one key is controlled by Ninki. The user would typically store one encrypted key online, on a usb drive or a cloud storage service. This is referred to as the Online key and should always be stored using encryption. The other user key would typically be stored offline, perhaps in paper format in a safe deposit box or safe. The Countersigning key is secured by Ninki on the server.</p>
 
 
 <p>This configuration allows Ninki to act as a counter-signing service, but without the ability to move the funds alone, and provides the user with the ability to recover their funds in any event.</p>
