@@ -76,9 +76,11 @@ mnemonic reffered to as a 'Ninki Phrase'.</p>
 
 <li>Bob encrypts the contents of the packet and Alice's untrusted PGP public key with his PGP public key and stores on the server for future reference.</li>
 
-<li>Out of band Alice sends Bob her PGP public key fingerprint and Bob verifies that the untrusted PGP public key he has stored for Alice matches this fingerprint.</li>
+<li>Out of band, Alice sends Bob her PGP public key fingerprint</li>
 
-<li>If the fingerprint matches, Alice's PGP public key is now trusted by Bob and the integrity of the exchange is verified.</li>
+<li>Bob verifies that the untrusted PGP public key he has stored for Alice matches this fingerprint.</li>
+
+<li>Alice's PGP public key is now trusted by Bob and the integrity of the exchange is verified.</li>
 
 <li>Whenever Bob needs to generate an address for Alice, he retrieves the packet from the server, decrypts it with his PGP private key and derives a new address for Alice.</li>
 
