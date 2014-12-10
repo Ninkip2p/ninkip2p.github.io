@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  
+
 <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Optional Bootstrap Theme -->
 
-  <link href="data:text/css;charset=utf-8," data-href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+<link href="data:text/css;charset=utf-8," data-href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
 
 <!-- Documentation extras -->
 
@@ -19,12 +19,58 @@
 </head>
 
 <body>
+<div class="wrapper">
+
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">Ninki</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a>Documentation</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
 
 <div class="container bs-docs-container">
 
 <div class="row">
 
+    <ul>
+  <li>Authentication</li>
+  <li>PGP Key Exchange</li>
+  <li>Multi Signature Architecture</li>
+  </ul>
+</div>
+
+<div class="row">
+
 <div class="col-md-9">
+
+<h2>Authentication</h2>
+
+<p>
+When the user creates an account a secret is shared between the server and the client. The client encrypts a randomly generated secret using their password as an input to a pbkdf along with a unique salt. The encryption scheme is AES 256 Mode: CBC, Padding: No Padding
+</p>
+
+<p>
+The encrypted secret is stored on the server. When the user attempts to login to the server the entered password is derived to a passphrase using a unique salt. The client requests the encrypted secret from the server, the server returns the encrypted secret and the client decrypts using the passphrase. The result is sent back to the server and the server compares the secret with value originally shared.
+</p>
+
+<p>The user has 4 attempts to succesfully decrypt the secret before the account is locked. Once the user has proven that they can decrypt the secret, and therefore know the password, the server challenges them to provide a one time 2 factor authentication code. If this is validated succesfully the user is authenticated and a session token is issued.</p>
+
+<p>The encrypted packet containing the users api key and public key information is sent to the client and decrypted using the passphrase. The client maintains a connection with the server polling every 10 seconds, if there is no communication for over 60 seconds, the session is timed out and the user will have to authenticate to establish a session.</p>
+
+
+
+<h2>PGP Key Exchange</h2>
 
 <h3>Rationale</h3>
 
@@ -46,7 +92,7 @@
 users who regularly transact with each other, to generate addresses on each other's behalf. So instead of you sending
 me an address, I simply derive one from the next node on the public key chain you assinged and sent to me.</p>
 
-<p>This presents a problem of a MIM attack when exchanging these parent nodes. How do we know the server which is 
+<p>This presents a problem of a MIM attack when exchanging these parent nodes. How do we know the server which is
 facilitating the exchange is not compromised.</p>
 
 <p>To solve this we use PGP with the keys generated on the client at the time of account creation and stored in an
@@ -58,6 +104,10 @@ mnemonic reffered to as a 'Ninki Phrase'.</p>
 
 
 <h3>Alice provides a node to Bob</h3>
+
+
+<img src="pgp-ex.png" />
+
 
 <div class="bs-callout">
 <ol>
@@ -84,22 +134,22 @@ mnemonic reffered to as a 'Ninki Phrase'.</p>
 
 </ol>
   </div>
-  
-  
-<p>
-Whenever Bob needs to generate an address for Alice, he retrieves the packet from the server, decrypts it with his PGP private key and derives a new address for Alice.
-</p>
 
 <p>
-The reverse process happens and Alice and Bob now have connected wallets. 
+Whenever Bob needs to generate an address for Alice, he retrieves the packet from the server, decrypts it with his PGP private key and derives a new address for Alice. The reverse process happens and Alice and Bob now have connected wallets.
 </p>
+
+
+<h2>Multi Signature Architecture</h2>
 
 
 </div>
 
 
 </div>
-  
+
+</div>
+
 </div>
 </body>
 </html>
