@@ -47,6 +47,7 @@
 <h2>Introduction</h2>
 
     <ul>
+  <li>Key Management</li>
   <li>Authentication</li>
   <li>Hierarchical Deterministic Keys</li>
   <li>PGP Key Exchange</li>
@@ -59,6 +60,46 @@
 <div class="row">
 
 <div class="col-md-9">
+
+
+<h2>Key Management</h2>
+
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+       <tr>
+         <th style="width: 100px;">Asset</th>
+         <th style="width: 50px;">Responsibility</th>
+         <th style="width: 50px;">Method</th>
+
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+         <td>Online Key</td>
+         <td>User</td>
+         <td>Chrome Storage (Encrypted) + Encrypted backup</td>
+       </tr>
+       <tr>
+         <td>Offline Key</td>
+         <td>User</td>
+         <td>Offline Storage eg. written down, kept in safe, safety deposit</td>
+       </tr>
+       <tr>
+         <td>Countersign Key</td>
+         <td>Service</td>
+         <td>Encrypted Stored in database</td>
+       </tr>
+       <tr>
+         <td>PGP Key</td>
+         <td>User/Service</td>
+         <td>Encrypted by the user / stored in databse</td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
 
 <h2>Authentication</h2>
 
