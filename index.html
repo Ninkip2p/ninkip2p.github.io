@@ -59,6 +59,16 @@
 
 <div class="col-md-9">
 
+<h2>Hierarchical Deterministic Keys</h2>
+
+<p>All keys are deterministic as defined in <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a>
+</p>
+
+<p>The online and offline keys are derived from a random 32 byte array using window.crypto.getRandomValues. The data is then hashed using SHA256 and used as a seed to an HD key space.</p>
+
+<p>Node m/0/0 is used for receiving address generation, node m/0/1 is used for change address generation and m/0/1000 is used for allocating nodes to contacts on your network.</p>
+
+
 <h2>Authentication</h2>
 
 
