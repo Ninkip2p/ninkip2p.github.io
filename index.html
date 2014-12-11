@@ -47,6 +47,7 @@
 <h2>Introduction</h2>
 
     <ul>
+  <li>Delivery Mechanism</li>
   <li>Key Management</li>
   <li>Authentication</li>
   <li>Hierarchical Deterministic Keys</li>
@@ -68,9 +69,9 @@
 
 <p>Chrome Apps are not extensions, they do not run in the Chrome browser. They are a sandboxed application that runs in it's own instance of Chrome.</p>
 
-<p>It disables certain features of Javascript that are responsbile for most XSS injection attacks and requires a Content Security Policy to explicitly authorise access to external domains.</p>
+<p>Chrome Apps disable certain features of Javascript that are responsbile for most XSS injection attacks and require a Content Security Policy to explicitly authorise access to external domains.</p>
 
-<p>The application itself is delivered via a signed delivery system and will not install unless the signature is correct. Updates can be pushed to users by a person in ownership of the Google account the app is registered under and the private key. in this respect it is very similar to the model for delivering iPhone and Android phone apps.</p>
+<p>The application itself is delivered via a signed delivery system and will not install unless the signature is correct. Updates can be pushed to users by a person in ownership of the Google account the app is registered under. In this respect it is very similar to the model for delivering iPhone and Android phone apps.</p>
 
 
 <h2>Key Management</h2>
