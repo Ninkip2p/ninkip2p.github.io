@@ -59,16 +59,6 @@
 
 <div class="col-md-9">
 
-<h2>Hierarchical Deterministic Keys</h2>
-
-<p>All keys are deterministic as defined in <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a>
-</p>
-
-<p>The online and offline keys are derived from a random 32 byte array using window.crypto.getRandomValues. The data is then hashed using SHA256 and used as a seed to an HD key space.</p>
-
-<p>Node m/0/0 is used for receiving address generation, node m/0/1 is used for change address generation and m/0/1000 is used for allocating nodes to contacts on your network.</p>
-
-
 <h2>Authentication</h2>
 
 
@@ -88,6 +78,14 @@ The encrypted secret is stored on the server. When the user attempts to login to
 
 <p>The encrypted packet containing the users api key and public key information is sent to the client and decrypted using the passphrase. The client maintains a connection with the server polling every 10 seconds, if there is no communication for over 60 seconds, the session is timed out and the user will have to authenticate to establish a session.</p>
 
+<h2>Hierarchical Deterministic Keys</h2>
+
+<p>All keys are deterministic as defined in <a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">BIP32</a>
+</p>
+
+<p>The online and offline keys are derived from a random 32 byte array using window.crypto.getRandomValues. The data is then hashed using SHA256 and used as a seed to an HD key space.</p>
+
+<p>Node m/0/0 is used for receiving address generation, node m/0/1 is used for change address generation and m/0/1000 is used for allocating nodes to contacts on your network.</p>
 
 
 <h2>Wallet Network</h2>
