@@ -240,6 +240,21 @@ Whenever Bob needs to generate an address for Alice, he retrieves the packet fro
 <img src="multis.png" />
 
 
+<h2>Transaction Validation</h2>
+
+<p>Before countersigning the following items are checked on the server:</p>
+
+<ul>
+ <li>Single Transaction Limit</li>
+ <li>Daily Transaction Limit</li>
+ <li>Number of Transactions / 24hr Limit</li>
+ <li>Number of Transactions / 1hr Limit</li>
+ <li>Change address</li>
+ <li>Send to Contact Address</li>
+</ul>
+
+<p>Sending beyond a transaction limit, requires two factor authentication, and is not possible from the mobile app</p>
+
 </div>
 
 
