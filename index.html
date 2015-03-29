@@ -130,7 +130,7 @@ When the user creates an account a secret is shared between the server and the c
 The encrypted secret is stored on the server. When the user attempts to login to the server the entered password is derived to a passphrase using a unique salt. The client requests the encrypted secret from the server, the server returns the encrypted secret and the client decrypts using the passphrase. The result is sent back to the server and the server compares the secret with value originally shared.
 </p>
 
-<p>The user has 4 attempts to succesfully decrypt the secret before the account is locked. Once the user has proven that they can decrypt the secret, and therefore know the password, the server challenges them to provide a one time 2 factor authentication code. If this is validated succesfully the user is authenticated and a session token is issued.</p>
+<p>Once the user has proven that they can decrypt the secret, and therefore know the password, the server challenges them to provide a one time 2 factor authentication code. If this is validated succesfully the user is authenticated and a session token is issued.</p>
 
 <p>The encrypted packet containing the users api key and public key information is sent to the client and decrypted using the passphrase. The client maintains a connection with the server polling every 10 seconds, if there is no communication for over 60 seconds, the session is timed out and the user will have to authenticate to establish a session.</p>
 
